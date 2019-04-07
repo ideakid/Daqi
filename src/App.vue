@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <header>
-    
+      DQIA
     </header>
     <main>
-     
+
       <router-view></router-view>
       <informations pm25="101.2" pm10="120" temp="30" humid="2" log_datetime="2019-04-07 13:00:00"/>
     </main>
@@ -39,14 +39,16 @@ main {
 }
 
 header {
+  text-align: center;
   margin: 0;
-  height: 56px;
-  padding: 0 16px 0 24px;
+  padding: 20px;
+  /*height: 56px;*/
   background-color: #35495E;
   color: #ffffff;
 }
 
 header span {
+  color: white;
   display: block;
   position: relative;
   font-size: 20px;
