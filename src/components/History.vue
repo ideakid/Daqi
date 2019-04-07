@@ -1,37 +1,50 @@
 <template>
-  <div class="hello">
-
-  </div>
+    <div>
+        <table>
+            <tr>
+                
+                <td><h3>Date Time</h3></td>
+                <td><h3>PM 2.5</h3></td>
+                <td><h3>PM 10</h3></td>
+                
+            </tr>
+            <tr  v-for="valueitem in stationdata.value"  v-bind:key="valueitem.log_datetime">
+                <td>{{valueitem.log_datetime }}</td>
+                <td>{{valueitem.pm25 }}</td>
+                 <td>{{valueitem.pm10 }}</td>
+            </tr>
+        </table>
+    </div>
 </template>
 
 <script>
 export default {
   name: 'History',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js PWA'
-    }
-  }
+  props: ['stationdata']
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-h1, h2 {
-  font-weight: normal;
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
-
-ul {
-  list-style-type: none;
-  padding: 0;
+h3 {
+  
+  text-align: center;
 }
-
-li {
-  display: inline-block;
-  margin: 0 10px;
+td {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
 }
-
-a {
-  color: #35495E;
+th{
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 10px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
 </style>
