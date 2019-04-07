@@ -6,7 +6,7 @@
     <main>
 
       <router-view></router-view>
-      <informations pm25="101.2" pm10="120" temp="30" humid="2" log_datetime="2019-04-07 13:00:00"/>
+      <informations :pm25="pm25" :pm10="pm10" :temp="temp" :humid="humid" :log_datetime="log_datetime"/>
       <br>
       <h2>History</h2>
       <History v-bind:stationdata="stationData" />
@@ -23,7 +23,13 @@ export default {
   name: 'app',
   data () {
     return {
-      stationData: {}
+      stationData: {},
+      pm25: '',
+      pm10: '',
+      temp: '',
+      humid: '',
+      log_datetime: ''
+
     }
   },
   components: {
@@ -33,6 +39,12 @@ export default {
   created () {
     StationApi.get(9, 'avghr').then((response) => {
       this.stationData = response.data[0]
+      this.pm25 = this.stationData.value[0].pm25
+      this.pm10 = this.stationData.value[0].pm10
+      this.temp = this.stationData.value[0].temp
+      this.humid = this.stationData.value[0].humid
+      this.log_datetime = this.stationData.value[0].log_datetime
+      console.log(this.stationData.value[0].log_datetime)
     })
   }
 }
