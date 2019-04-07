@@ -4,16 +4,32 @@
       <span>Vue.js PWA</span>
     </header>
     <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
-      <router-view></router-view>
+      <infomation msg="2.6"></infomation>
     </main>
   </div>
 </template>
 
+
 <script>
-export default {
-  name: 'app'
-}
+  import Infomation from './components/Infomation.vue'
+  import Service from './service/apiservice'
+  export default {
+    name: 'app',
+    data () {
+      return {
+        dataInfo: [ ]
+      }
+    },
+    components: {
+      Infomation,
+      Service
+    },
+    created () {
+      Service.getAll().then(function (res) {
+        this.dataInfo = res.data
+      })
+    }
+  }
 </script>
 
 <style>

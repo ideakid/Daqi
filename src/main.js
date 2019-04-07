@@ -3,12 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-import BootstrapVue from 'bootstrap-vue'
-// import Axios from 'axios'
 
-Vue.use(BootstrapVue)
+import Axios from 'axios'
+Axios.defaults.baseURL = 'https://agile-reaches-83574.herokuapp.com/api'
 
 Vue.config.productionTip = false
 
