@@ -1,18 +1,23 @@
 <template>
   <div id="app">
     <header>
-      <span>Vue.js PWA</span>
+    
     </header>
     <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
+     
       <router-view></router-view>
+      <informations pm25='101.2'  pm10='120' temp="30" humid="2" log_datetime="2019-04-07 13:00:00"/>
     </main>
   </div>
 </template>
 
 <script>
+import informations from './components/Infomation.vue'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    informations
+  }
 }
 </script>
 
