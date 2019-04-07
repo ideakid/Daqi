@@ -1,35 +1,24 @@
 <template>
   <div id="app">
     <header>
-      <span>Vue.js PWA</span>
+    
     </header>
     <main>
-      <infomation msg="2.6"></infomation>
+     
+      <router-view></router-view>
+      <informations pm25="101.2" pm10="120" temp="30" humid="2" log_datetime="2019-04-07 13:00:00"/>
     </main>
   </div>
 </template>
 
-
 <script>
-  import Infomation from './components/Infomation.vue'
-  import Service from './service/apiservice'
-  export default {
-    name: 'app',
-    data () {
-      return {
-        dataInfo: [ ]
-      }
-    },
-    components: {
-      Infomation,
-      Service
-    },
-    created () {
-      Service.getAll().then(function (res) {
-        this.dataInfo = res.data
-      })
-    }
+import informations from './components/Infomation.vue'
+export default {
+  name: 'app',
+  components: {
+    informations
   }
+}
 </script>
 
 <style>
@@ -66,5 +55,11 @@ header span {
   font-weight: 400;
   box-sizing: border-box;
   padding-top: 16px;
+}
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
 }
 </style>
