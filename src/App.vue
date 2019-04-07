@@ -7,16 +7,33 @@
 
       <router-view></router-view>
       <informations pm25="101.2" pm10="120" temp="30" humid="2" log_datetime="2019-04-07 13:00:00"/>
+      <br>
+      <h2>History</h2>
+      <History v-bind:stationdata="stationData" />
     </main>
   </div>
 </template>
 
 <script>
 import informations from './components/Infomation.vue'
+import History from './components/History'
+import StationApi from './api-services/stations.service'
+
 export default {
   name: 'app',
+  data () {
+    return {
+      stationData: {}
+    }
+  },
   components: {
-    informations
+    informations,
+    History
+  },
+  created () {
+    StationApi.get(9, 'avghr').then((response) => {
+      this.stationData = response.data[0]
+    })
   }
 }
 </script>
