@@ -6,7 +6,7 @@
     <main>
      
       <router-view></router-view>
-      <informations pm25='101.2'  pm10='120' temp="30" humid="2" log_datetime="2019-04-07 13:00:00"/>
+      <informations pm25="101.2" pm10="120" temp="30" humid="2" log_datetime="2019-04-07 13:00:00"/>
     </main>
   </div>
 </template>
@@ -55,5 +55,11 @@ header span {
   font-weight: 400;
   box-sizing: border-box;
   padding-top: 16px;
+}
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
 }
 </style>

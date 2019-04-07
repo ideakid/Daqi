@@ -1,18 +1,21 @@
 <template>
-  <div>
-      <table>
+  <div class="center">
+      <table width="100%" border="0" padding="2">
       <tr>
-      <td><img src="../assets/pm1.jpg" alt="" width="50px"></td><td><label>{{pm25}}</label><br>
-        <label>{{pm10}}</label>
+      <td  width="50%" align="right"><img src="../assets/pm1.jpg" alt="" width="50px"></td>
+      <td align="left"><label>PM 2.5 : {{pm25}}</label><br>
+        <label>PM 10 : {{pm10}}</label>
       </td>
       </tr>
+      <tr><td colspan="2">&nbsp;</td></tr>
       <tr>
-        <td><img src="../assets/temp.png" alt="" width="50px"><label>{{temp}}</label></td>
-        <td><img src="../assets/hum.jpg" alt="" width="30px"><label>{{humid}}</label></td>
+        <td align="right"><img src="../assets/temp.png" alt="" width="50px"><label>{{temp}}</label>&nbsp;&nbsp;&nbsp;</td>
+        <td align="left"><img src="../assets/hum.jpg" alt="" width="30px">&nbsp;<label>{{humid}}</label></td>
       </tr>
+       <tr><td colspan="2">&nbsp;</td></tr>
       <tr>
-        <td><img src="../assets/clock.jpg" alt="" width="50px"></td>
-        <td><label>{{log_datetime}}</label></td>
+        <td align="right"><img src="../assets/clock.jpg" alt="" width="50px">&nbsp;</td>
+        <td align="left"><label>{{log_datetime}}</label></td>
       </tr>
     </table>
   </div>
@@ -21,10 +24,16 @@
 <script>
 export default {
   name: 'Infomation',
+  props: {
+    pm25: String,
+    pm10: String,
+    temp: String,
+    humid: String,
+    log_datetime: String
+  },
   data () {
     return {
-      msg: 'Informations',
-      props: ['pm25', 'pm10', 'temp', 'humid', 'log_datetime']
+      // props: ['pm25', 'pm10', 'temp', 'humid', 'log_datetime']
     }
   }
 }
@@ -48,5 +57,11 @@ li {
 
 a {
   color: #35495E;
+}
+.center {
+  margin: auto;
+  width: 30%;
+  border: 3px solid green;
+  padding: 10px;
 }
 </style>
